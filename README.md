@@ -24,3 +24,7 @@ Good luck!
 
 TIP: Take all things in moderation.  Even moderating. 
 So play this game with extreme prejudice. 
+
+References:
+w3schools.com
+
