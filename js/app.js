@@ -1,3 +1,4 @@
+"use strict";
 // Enemies our player must avoid
 var Enemy = function() {
     // the starting pixel for the roads
@@ -18,7 +19,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-}
+};
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -34,12 +35,12 @@ Enemy.prototype.update = function(dt) {
 		this.y = this.rowPixel[ Math.floor((Math.random() * 3)) ];
 		this.speed = this.speeds[Math.floor((Math.random() * 9))];
 	}
-}
+};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
+};
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -65,7 +66,7 @@ var Player = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/char-cat-girl.png';
-}
+};
 
 Player.prototype.update = function(){
 
@@ -89,7 +90,7 @@ Player.prototype.update = function(){
 
 	// check if player has hit an enemy
 	collide();
-}
+};
 
 Player.prototype.render = function(){
 
@@ -119,7 +120,7 @@ Player.prototype.render = function(){
 	// if no lives stay in gameover state
 	if ( this.lives == 0) gameOver();
 
-}
+};
 
 Player.prototype.renderHighScore = function(){
 
@@ -137,7 +138,7 @@ Player.prototype.renderHighScore = function(){
 	ctx.fillText("high score: " + this.highScore, 0, 0);
 	ctx.strokeText("high score: " + this.highScore, 0, 0);
 
-}
+};
 
 Player.prototype.handleInput = function(e){
 
@@ -156,13 +157,13 @@ Player.prototype.handleInput = function(e){
 	}else if (e == 'replay'){
 		this.replay();
 	}
-}
+};
 
 // This function moves the player back to starting point
 Player.prototype.restart = function(){
 	this.x = 200;
 	this.y = 400;
-}
+};
 
 // Initializes for a new game
 Player.prototype.replay = function(){
@@ -170,11 +171,11 @@ Player.prototype.replay = function(){
 	if (this.score > this.highScore) this.highScore = this.score;
 	this.score = 0;
 	this.lives = 4;
-}
+};
 
 Player.prototype.getLives = function(){
 	return this.lives;
-}
+};
 
 
 // Now instantiate your objects.
@@ -207,7 +208,7 @@ var collide = function(){
 
 	}
 
-}
+};
 
 var gameOver = function(){
 		ctx.font = "48px Comic";
@@ -218,7 +219,7 @@ var gameOver = function(){
 		ctx.font = "18px Comic";
 		ctx.fillStyle = "White";
 		ctx.fillText("HIT \"r\" TO PLAY AGAIN", 105, 100);
-}
+};
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
