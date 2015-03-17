@@ -1,4 +1,9 @@
 "use strict";
+
+var Cast = function() {
+	console.log("Casting...");
+};
+
 // Enemies our player must avoid
 var Enemy = function() {
     // the starting pixel for the roads
@@ -7,6 +12,7 @@ var Enemy = function() {
 	// how fast the enemies move across the screen
 	this.speeds = [ 100, 150, 200, 250, 300, 350, 400, 450, 500];
 	
+	Cast.call(this);
 	// starting position
 	this.x = -100;  
 	this.y = this.rowPixel[Math.floor((Math.random() * 3))];
@@ -20,6 +26,10 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
 };
+
+Enemy.prototype = Object.create(Cast.prototype);
+
+Enemy.prototype.contructor = Enemy;
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -49,6 +59,7 @@ var Player = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 	// player starting position
+	Cast.call(this);
 	this.x = 200;
 	this.y = 400;
 	this.characterX = 15;
@@ -67,6 +78,10 @@ var Player = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/char-cat-girl.png';
 };
+
+Player.prototype = Object.create(Cast.prototype);
+
+Player.prototype.contructor = Player;
 
 Player.prototype.update = function(){
 
@@ -202,7 +217,7 @@ var collide = function(){
 			player.lives--;
 			if ( player.lives <= 0 ){
 				player.lives=0;
-				this.gameOver();
+				//this.gameOver();
 			}
 		}
 
