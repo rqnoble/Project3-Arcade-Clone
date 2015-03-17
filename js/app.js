@@ -1,7 +1,9 @@
 "use strict";
 
-var Cast = function() {
+var Cast = function(x, y) {
 	console.log("Casting...");
+	this.x = x;
+	this.y = y;
 };
 
 // Enemies our player must avoid
@@ -12,10 +14,10 @@ var Enemy = function() {
 	// how fast the enemies move across the screen
 	this.speeds = [ 100, 150, 200, 250, 300, 350, 400, 450, 500];
 	
-	Cast.call(this);
+	Cast.call(this, -100, this.rowPixel[Math.floor((Math.random() * 3))]);
 	// starting position
-	this.x = -100;  
-	this.y = this.rowPixel[Math.floor((Math.random() * 3))];
+	//this.x = -100;  
+	//this.y = this.rowPixel[Math.floor((Math.random() * 3))];
 	this.characterY = 75;
 	// the width and height used for collision detection
 	this.width = 90;
@@ -59,9 +61,9 @@ var Player = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 	// player starting position
-	Cast.call(this);
-	this.x = 200;
-	this.y = 400;
+	Cast.call(this, 200, 400);
+	//this.x = 200;
+	//this.y = 400;
 	this.characterX = 15;
 	this.characterY = 60;
 	this.width = 60;
