@@ -5,7 +5,7 @@ Navigate this poor player trapped in a this
 beautiful 5x6 grid directly into the water as 
 much as your heart so desires.
 
-Don't worry the player won't drowned.  The 
+Don't worry the player won't drown.  The 
 player will be immediately and safely teleported 
 back where she started as if nothing happened.
 
